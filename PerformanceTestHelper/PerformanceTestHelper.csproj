@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Better.PerformanceTesting</RootNamespace>
+    <PackageId>Better.PerformanceTesting</PackageId>
+    <Authors>Nikas Lööw</Authors>
+    <Product>Better.PerformanceTesting</Product>
+    <Description>A libary to help out with performance testing. This package is still in early beta.</Description>
+    <Version>0.0.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
