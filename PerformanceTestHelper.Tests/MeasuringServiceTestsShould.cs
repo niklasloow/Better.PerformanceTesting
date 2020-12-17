@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
+﻿using System.Threading;
 using Better.RandomDataGenerator;
 using Xunit;
 
@@ -21,21 +19,10 @@ namespace PerformanceTestHelper.Tests
         [InlineData(10000)]
         public void ReturnAValidMeasurement(int delay)
         {
-            var result = MeasuringService.Measure(() => Thread.Sleep(1000));
-            Assert.InRange(result.TotalMilliseconds, (delay - 10), (delay + 10));
+            var result = MeasuringService.Measure(() => Thread.Sleep(delay));
+            Assert.InRange(result.TotalMilliseconds, (delay - 20), (delay + 20));
         }
 
         //TODO - unit of measuring
-    }
-
-    public static class MeasuringService
-    {
-        public static TimeSpan Measure(Action action)
-        {
-            var stopwatch = Stopwatch.StartNew();
-            action();
-            stopwatch.Stop();
-            return stopwatch.Elapsed;
-        }
     }
 }

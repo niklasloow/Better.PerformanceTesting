@@ -10,6 +10,7 @@ namespace PerformanceTestHelper.Tests
             {
                 AverageRunTimePerIteration = result.TotalMilliseconds / testCase.NumberOfIterationsOfTest,
                 NumberOfIterationsOfTest = testCase.NumberOfIterationsOfTest,
+                TotalRunTime = result.TotalMilliseconds,
                 TestCaseName = testCase.Name
             };
         }

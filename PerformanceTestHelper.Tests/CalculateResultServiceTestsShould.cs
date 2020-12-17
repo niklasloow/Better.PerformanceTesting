@@ -16,11 +16,27 @@ namespace PerformanceTestHelper.Tests
 
             var timeSpan = RandomDataGenerator.TimeSpanGenerator.GetRandomTimeSpan();
 
-            var avgRunTime = timeSpan.Milliseconds / testCase.NumberOfIterationsOfTest;
+            var avgRunTime = timeSpan.TotalMilliseconds / testCase.NumberOfIterationsOfTest;
 
             var sut = CalculateResultService.Calculate(timeSpan, testCase);
 
             Assert.Equal(avgRunTime, sut.AverageRunTimePerIteration);
+
+
+        }
+
+        [Fact]
+        public void SetCorrectTotalTime()
+        {
+            var testCase = new TestCaseBuilder()
+                .Typical()
+                .Build();
+
+            var timeSpan = RandomDataGenerator.TimeSpanGenerator.GetRandomTimeSpan();
+
+            var sut = CalculateResultService.Calculate(timeSpan, testCase);
+
+            Assert.Equal(timeSpan.TotalMilliseconds, sut.TotalRunTime);
 
 
         }

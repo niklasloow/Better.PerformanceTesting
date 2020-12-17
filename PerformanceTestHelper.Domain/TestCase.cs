@@ -11,6 +11,11 @@ namespace PerformanceTestHelper.Tests
             Name = name;
         }
 
+        public TestCase()
+        {
+            
+        }
+
         public string Name { get; set; }
 
         public int NumberOfIterationsOfTest { get; set; }
